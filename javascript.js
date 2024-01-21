@@ -43,7 +43,6 @@ confirm.addEventListener("click", (event)=>{
     event.preventDefault();
     const newBook = new Book(modalTitle.value, modalAuthor.value, modalPages.value, modalRead.checked)
     addBookToLibrary(newBook);
-    shelveABook(newBook);
     resetNewBookForm();
     dialog.close();
 })
