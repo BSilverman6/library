@@ -8,14 +8,12 @@ function Book(title, author, pages, read){
     this.author = author;
     this.pages = pages;
     this.read = read;
-    //**this.libNum = undefined;
     this.info = function(){
         return `${title} by ${author} is ${pages} pages long and I ${this.read === true? "have read": "have not read"} it.`
     };
 }
 
 function addBookToLibrary(item){
-   //** */ item.libNum = myLibrary.length === 0? 0: myLibrary[myLibrary.length-1].libNum + 1;
     myLibrary.push(item);
     shelveABook(item);
 }
@@ -30,12 +28,6 @@ addBookToLibrary(hp2);
 addBookToLibrary(hp3);
 addBookToLibrary(avatar3);
 
-
-/* function shelveTheBooks() {
-    myLibrary.forEach((item)=>shelveABook(item));
-} 
-
-shelveTheBooks();*/
 
 
 const newBookModal = document.querySelector(".new-book-modal");
@@ -66,7 +58,6 @@ function resetNewBookForm(){
 function shelveABook(item) {
     const aBook = document.createElement("div");
     aBook.className="book";
-    //*aBook.setAttribute("lib-num",`${item.libNum}`)
     aBook.setAttribute("lib-num", `${myLibrary.length-1}` )
     let aTitle = document.createElement ("div");
     let anAuthor = document.createElement ("div");
@@ -113,22 +104,9 @@ function shelveABook(item) {
                 myBooks[i].setAttribute("lib-num",`${i-1}`)
             }
         }
-        //for loop that changes the lib num of all greater libnums by -1 in the Library
-        /* for (let i=item.libNum+1; i<myLibrary.length; i++){
-            myLibrary[i].libNum -= 1;
-            myBooks[i].setAttribute("lib-num",`${i-1}`);
-        } */
-
-        
-        /*new Library Method
-            With attribute lib-num, in the myBooks variable, 
-            if myBooks[i].lib-num is > delted items fetched lib-num, decrease lib-num by 1.
-            This allows me to remove libNum 
-        */
-        
-        //for loop that changes the lib-num of all lib-num attributes for div class.book
+    
         shelves.removeChild(aBook);
-         myLibrary.splice(item.libNum,1);
+         myLibrary.splice(aBook.getAttribute("lib-num"),1);
     });
     
     
