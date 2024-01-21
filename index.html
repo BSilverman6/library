@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSilverman's Library</title>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+    </div>
+    
+    <div class="left-side side">
+        <!-- <button class='add-new-book'>
+            New Book
+        </button> -->
+        <button class="new-book-modal">
+            New Book
+        </button>
+        <dialog id="new-book-dialog">
+            <form>
+                <p><input type="text" placeholder="Title" id="modal-title"></p>
+                <p><input type="text" placeholder="Author" id="modal-author"></p>
+                <p><input type="number" placeholder="142" id="modal-pages"></p>
+                <p>
+                    <label for="modal-read">Read?</label>
+                    <input type="checkbox" id="modal-read">
+                </p>
+                <p>
+                    <button id="cancel" formmethod="dialog">Cancel</button>
+                    <button id="confirm">Confirm</button>
+                </p>
+            </form>
+        </dialog>
+    </div>
+
+    <div class="right-side side">
+    </div>
+
+    <div class ="my-shelves">
+    </div>
+
+    <div class="footer">
+    </div>
+</body>
+</html>
