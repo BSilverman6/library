@@ -3,14 +3,22 @@ const shelves = document.querySelector(".my-shelves");
 
 
 
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function(){
-        return `${title} by ${author} is ${pages} pages long and I ${this.read === true? "have read": "have not read"} it.`
+class Book{
+
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+   
+    info (){
+        return `${this.title} by ${this.author} is ${this.pages} pages long and I ${this.read === true? "have read": "have not read"} it.`
     };
+
+    changeRead(){
+        this.read = this.read === true? false: true;
+    }
 }
 
 function addBookToLibrary(item){
@@ -114,13 +122,13 @@ function shelveABook(item) {
             isRead.classList.remove("book-is-read");
             isRead.textContent="Not Read";
             isRead.classList.add("book-not-read");
-            item.read = false;
         }else{
             isRead.classList.remove("book-not-read");
             isRead.textContent="Read";
             isRead.classList.add("book-is-read");
-            item.read = true;
         }
+        
+        item.changeRead();
     })
     shelves.appendChild(aBook);
 }
